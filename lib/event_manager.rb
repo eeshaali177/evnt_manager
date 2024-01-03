@@ -1,8 +1,8 @@
-puts 'Event Manager Initialized!'
-file_path = 'event_attendees.csv'
-
-if File.exist?(file_path)
-  File.read(file_path)
-else
-  puts "Error: File '#{file_path}' not found."
+require 'csv'
+puts " Event Manager initialized"
+contents=CSV.open('event_attendees.csv', headers: true , header_converters: :symbol)
+contents.each do |row|
+  name=row[:first_name]
+  zipcode=row[:zipcode]
+  p "#{name}  #{zipcode}"
 end
