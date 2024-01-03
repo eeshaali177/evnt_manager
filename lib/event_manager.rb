@@ -1,4 +1,8 @@
 puts 'Event Manager Initialized!'
-File.exist? "event_attendees.csv"
-contents = File.read('event_attendees.csv')
-puts contents
+file_path = 'event_attendees.csv'
+
+if File.exist?(file_path)
+  File.read(file_path)
+else
+  puts "Error: File '#{file_path}' not found."
+end
